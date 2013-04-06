@@ -1,0 +1,18 @@
+
+<%=link_to 'submit', new_link_path%>
+
+<table>
+  <% @links.each do |contact| %>
+      <tr>
+        <td><%= contact.id%>.</td>
+        <td><a href="<%= contact.description %>"><%= contact.name %></a></td>
+        <td><%=link_to 'Edit contact', edit_link_path(contact)%></td>
+        <td><%= link_to 'Delete', contact, :method => :delete, :data => { :confirm => 'Are you sure?' } %></td>
+        <td><%= link_to 'up', '/like', :method => :post%></td>
+        <td><%= link_to "Label", :controller => :links, :action => :index%></td>
+        <td><%= button_to 'Down', contact, {:controller => 'links', :action => 'dislike'}%></td>
+      </tr>
+  <% end %>
+</table>
+
+

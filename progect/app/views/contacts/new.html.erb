@@ -1,0 +1,24 @@
+<style>
+  .field_with_errors{
+      background: red;
+  }
+</style>
+
+<% @contact.errors.full_messages.each do |t|  %>
+    <%= t %>
+    <% end %>
+
+
+
+<h2>Enter new contact</h2>
+<%=form_for @contact do |f|%>
+    <%=f.label :name%>
+    <%=f.text_field :name%>
+    <%=f.label :phone%>
+    <%=f.text_field :phone%>
+    <%=f.label :email%>
+    <%=f.text_field :email%>
+
+    <%=f.submit %>
+    <%end%>
+<%=link_to 'Home page', '/contacts'%>
